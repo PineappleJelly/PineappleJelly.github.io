@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+body {
+  margin: 25px 25px 25px 25px;
+  border-radius: 25px;
+  padding: 25px auto;
+  background-color: #221616;
+  background-repeat: repeat;
+  background-attachment: scroll;
+  background-position: top left;
+  font-family: Verdana, Geneva, Arial, Helvetica, Sans-Serif;
+  color:#D5B176;
+  font-size: 14px;
+}
+
+main{
+float: left;
+border-radius: 25px;
+background:#3D2828;
+padding: 20px;
+
+
+}
+
+h1 {
+  font-family: "Palatino Linotype", Georgia, "Times New Roman", Times, Serif;
+ font-size: 28px;
+ color:#F2925F;
+}
+
+p, li {
+color:#B99292;
+}
+
+select, input, textarea {
+	background-color:#34373c;
+	color: #FDECE3;
+}
+
+.button {
+	 background-color: #616161;
+	 border-color: #66666;
+	 color: #FDECE3;
+	 text-decoration: none;
+	 -webkit-transition-duration: 0.4s; /* Safari */
+	 transition-duration: 0.4s;
+	 cursor: pointer;
+}
+
+.button:hover {
+  color: #EF7534;
+}
+
+</style>
+
+<noscript>Your browser does not support JavaScript or JavaScript has been disabled and this app will not work.</noscript>
+
+<script language="javascript">
+
+
+ function resetForm(){
+	document.getElementById("generatorForm").reset();
+	document.getElementById("output").innerHTML = "";
+ }
+
+ function submitForm(){
+		var x = document.getElementById("biomeOverride");
+		if (x.checked == true) {
+			document.getElementById("output").innerHTML = document.getElementById("Season").value + "<br>" +
+			document.getElementById("City").value + "<br>" +
+			document.getElementById("days").value + "<br>" +
+			document.getElementById("biomeORSelector").value + "<br>";
+		}
+		else{
+			document.getElementById("output").innerHTML = document.getElementById("Season").value + "<br>" +
+			document.getElementById("City").value + "<br>" +
+			document.getElementById("days").value + "<br>";
+		}
+
+    }
+	
+	
+ function submitForm1(){
+		var x = document.getElementById("biomeOverride");
+		if (x.checked == true) {
+			var season = document.getElementById("season").value 
+			city = document.getElementById("city").value 
+			days = document.getElementById("days").value
+			biomeOverride = document.getElementById("biomeORSelector").value ;
+			
+		}
+		else{
+			var season = document.getElementById("season").value 
+			city = document.getElementById("city").value 
+			days = document.getElementById("days").value;
+			
+			
+		}
+
+    }
+
+	
+function generate(Season, City, biomeOR) {
+
+
+
+}
+	
+	
+function derp(wind) {
+	switch (wind) {
+		case 1:
+			return "The air is calm and still."
+			break;
+		case 2:
+			return "There is a breeze."
+			break;
+		case 3:
+			return "Strong gusts of wind."
+			break;
+		case 4 :
+			return "There is gale force winds"
+			break;
+		case 5:
+			return "Hurricane winds are blowing"
+			break;
+	}
+}
+
+function toggleFeatureList() {
+  var x = document.getElementById("featureList");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+function biomeOR() {
+	var x = document.getElementById("biomeOverride");
+	var biomeDiv 
+	var biomeDivOutput
+	var biomeOREnabled 
+	var biomeORSelect
+
+	
+	var biomeList = [ "biomeOROptionMN", "Mountains - North",
+			"biomeOROptionMS", "Mountains - South",
+			"biomeOROptionJungle", "Jungle",
+			"biomeOROptionDesert", "Desert",
+			"biomeOROptionPlains", "Plains",
+			"biomeOROptionOceanSuvan", "Suvan",
+			"biomeOROptionOceanOuterN", "Outer Oceans North",
+			"biomeOROptionOceanOuterS", "Outer Oceans South"]
+			
+			
+
+	if (x.checked == true) {
+			
+			biomeDivOutput = document.getElementById("biomeDivOutput");
+			biomeORSelect = document.createElement("select");
+			biomeORSelect.setAttribute("id", "biomeORSelector");
+			biomeDivOutput.appendChild(biomeORSelect);
+
+			//Create and append the options
+			for (var i = 0; i < biomeList.length; i++) {
+				var option = document.createElement("option");
+				option.setAttribute("value", biomeList[i]);
+				option.setAttribute("id", biomeList[i]);
+				biomeORSelect.appendChild(option);
+				i = i + 1
+				option.text = biomeList[i];
+				biomeORSelect.appendChild(option);
+			}
+
+		} else{
+			var elem = document.getElementById("biomeDivOutput");
+			while (elem.firstChild) {
+				elem.removeChild(elem.firstChild);
+			}
+		}
+		
+	
+}
+
+
+
+</script>
+<body>
+<main>
+<h1>Seasonal Weather Generator</h1>
+<p>To use this generator, pick a Season, a Location and how many days you would like to generate weather events. 
+<br>Many features are not implemented yet.</p>
+
+
+
+
+<form id="generatorForm" name="generatorForm2" >
+
+
+	<label for="season">Season:</label>
+	<select id="season">
+		<option value= "Empty" selected>Seasons</option>
+		<option value= "Spring">Spring</option>
+		<option value= "Summer">Summer</option>
+		<option value= "Fall">Fall</option>
+		<option value= "Winter">Winter</option>
+	</select>
+	<br><br>
+	<label for="city">City/Location:</label>
+	<select id="city">
+		<option value= "Empty" selected>Location</option>
+		<optgroup label="Sylir">
+			<option value= "Syliras">Syliras</option>
+			<option value= "Sahova">Sahova</option>
+			<option value= "Zeltiva">Zeltiva</option>
+			<option value= "Nyka">Nyka</option>
+			<option value= "Ravok">Ravok</option>
+			<option value= "Sunberth">Sunberth</option>
+			<option value= "The Wildlands">The Wildlands</option>
+		</optgroup>
+		<optgroup label="Taldera">
+			<option value= "Avanthal">Avanthal</option>
+			<option value= "The Spires">The Spires</option>
+			<option value= "The Northern Reaches">The Northern Reaches</option>
+		</optgroup>
+		<optgroup label="Kalea">
+			<option value= "Lhavit">Lhavit</option>
+			<option value= "Wind Reach">Wind Reach</option>
+			<option value= "Alvadas">Alvadas</option>
+			<option value= "Kalinor">Kalinor</option>
+			<option value= "Sultros">Sultros</option>
+			<option value= "The Unforgiving">The Unforgiving</option>
+		</optgroup>
+		<optgroup label="Falyndar">
+			<option value= "Syka">Syka</option>
+			<option value= "Taloba">Taloba</option>
+			<option value= "Zinrah">Zinrah</option>
+			<option value= "Black Rock">Black Rock</option>
+			<option value= "The Jungle Wilds">The Jungle Wilds</option>
+		</optgroup>
+		<optgroup label="Eyktol">
+			<option value= "Ahnatep">Ahnatep</option>
+			<option value= "Yahebah">Yahebah</option>
+			<option value= "The Burning Lands">The Burning Lands</option>
+		</optgroup>
+		<optgroup label="Elsewhere">
+			<option value= "Mura">Mura</option>
+			<option value= "Abura">Abura</option>
+			<option value= "The Suvan Sea">The Suvan Sea</option>
+			<option value= "The Outer Oceans - East">The Outer Oceans - East</option>
+			<option value= "The Outer Oceans - West">The Outer Oceans - West</option>
+			<option value= "Location Override">Location Override</option>
+		</optgroup>
+	</select>
+	<br>
+		<label for="biomeOverride">Biome Override:</label>
+	<input type="checkbox" id="biomeOverride" onclick="biomeOR()">
+	<div id="biomeDivOutput"> </div>
+	<label for="days">Days:</label>
+	<input type="number" id="days" min="1" max="92" value="91">
+	<br>	<br>
+	
+	
+	
+	
+	<input type="button" id="submit" class="button" value="Submit" onclick="submitForm()" >
+	<input type="button" id="resetbutton" class="button"  value="Reset" onclick="resetForm()">
+	
+	
+	<br><br>
+	<br>
+<output id="output" form="generatorForm">Here is some output</output>
+<br>
+<label for="outputTextAreaBBC">BBC Output:</label>
+<br>
+<textarea id="outputTextAreaBBC rows="4" cols="50"> Sphinx of black quartz, judge my vow" </textarea>
+
+
+</form>
+
+
+
+
+
+
+<br><br>
+<p>What has been implemented </p>  <button class="button" onclick="toggleFeatureList()">Click to Hide</button>
+<div id="featureList"><ul>
+	<li>biome override conditional checkbox</li>
+</ul>
+	
+<p>What has not been implemented </p>
+<ul>
+	<li>Proper city biomes</li>
+</ul></div>
+</main>
+</body>
+</html>
