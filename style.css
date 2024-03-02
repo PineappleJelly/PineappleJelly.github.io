@@ -8,6 +8,13 @@
 body {
 	 background-color:#F2CD5C ;
 	 color: #A61F69;
+	 
+}
+
+#title {
+	  float: right;
+	   padding-left: 80px;
+	  
 }
 
  .a {
