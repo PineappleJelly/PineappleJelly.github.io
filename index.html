@@ -2,55 +2,39 @@
 <html>
 
 <style>
+* {
+  box-sizing: border-box;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, "Helvetica Neue",  Arial, sans-serif;
+  margin: auto;
+
+}
+
 body {
-  margin: 25px 25px 25px 25px;
-  border-radius: 25px;
-  padding: 25px auto;
-  background-color: #221616;
-  background-repeat: repeat;
-  background-attachment: scroll;
-  background-position: top left;
-  font-family: Verdana, Geneva, Arial, Helvetica, Sans-Serif;
-  color:#D5B176;
-  font-size: 14px;
+	 background-color:#F2CD5C ;
+	 color: #A61F69;
 }
 
-main{
-float: left;
-border-radius: 25px;
-background:#3D2828;
-padding: 20px;
+ .a {
+	 fill: #A61F69;
+ }
 
-
+@media screen and (min-width: 480px) {
+	#centeralLogo {
+		display: block;
+		margin:  200px auto 200px auto;
+		height: 30pc;
+		width: 30pc;
+	}
 }
 
-h1 {
-  font-family: "Palatino Linotype", Georgia, "Times New Roman", Times, Serif;
- font-size: 28px;
- color:#F2925F;
-}
 
-p, li {
-color:#B99292;
-}
-
-select, input, textarea {
-	background-color:#34373c;
-	color: #FDECE3;
-}
-
-.button {
-	 background-color: #616161;
-	 border-color: #66666;
-	 color: #FDECE3;
-	 text-decoration: none;
-	 -webkit-transition-duration: 0.4s; /* Safari */
-	 transition-duration: 0.4s;
-	 cursor: pointer;
-}
-
-.button:hover {
-  color: #EF7534;
+@media screen and (max-width: 479px) {
+	#centeralLogo {
+		display: block;
+		margin:  200px auto 200px auto;
+		height: 50vmax;
+		width: 50vmax;
+	}
 }
 
 </style>
@@ -60,242 +44,27 @@ select, input, textarea {
 <script language="javascript">
 
 
- function resetForm(){
-	document.getElementById("generatorForm").reset();
-	document.getElementById("output").innerHTML = "";
- }
-
- function submitForm(){
-		var x = document.getElementById("biomeOverride");
-		if (x.checked == true) {
-			document.getElementById("output").innerHTML = document.getElementById("Season").value + "<br>" +
-			document.getElementById("City").value + "<br>" +
-			document.getElementById("days").value + "<br>" +
-			document.getElementById("biomeORSelector").value + "<br>";
-		}
-		else{
-			document.getElementById("output").innerHTML = document.getElementById("Season").value + "<br>" +
-			document.getElementById("City").value + "<br>" +
-			document.getElementById("days").value + "<br>";
-		}
-
-    }
-	
-	
- function submitForm1(){
-		var x = document.getElementById("biomeOverride");
-		if (x.checked == true) {
-			var season = document.getElementById("season").value 
-			city = document.getElementById("city").value 
-			days = document.getElementById("days").value
-			biomeOverride = document.getElementById("biomeORSelector").value ;
-			
-		}
-		else{
-			var season = document.getElementById("season").value 
-			city = document.getElementById("city").value 
-			days = document.getElementById("days").value;
-			
-			
-		}
-
-    }
-
-	
-function generate(Season, City, biomeOR) {
-
-
-
-}
-	
-	
-function derp(wind) {
-	switch (wind) {
-		case 1:
-			return "The air is calm and still."
-			break;
-		case 2:
-			return "There is a breeze."
-			break;
-		case 3:
-			return "Strong gusts of wind."
-			break;
-		case 4 :
-			return "There is gale force winds"
-			break;
-		case 5:
-			return "Hurricane winds are blowing"
-			break;
-	}
-}
-
-function toggleFeatureList() {
-  var x = document.getElementById("featureList");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-
-function biomeOR() {
-	var x = document.getElementById("biomeOverride");
-	var biomeDiv 
-	var biomeDivOutput
-	var biomeOREnabled 
-	var biomeORSelect
-
-	
-	var biomeList = [ "biomeOROptionMN", "Mountains - North",
-			"biomeOROptionMS", "Mountains - South",
-			"biomeOROptionJungle", "Jungle",
-			"biomeOROptionDesert", "Desert",
-			"biomeOROptionPlains", "Plains",
-			"biomeOROptionOceanSuvan", "Suvan",
-			"biomeOROptionOceanOuterN", "Outer Oceans North",
-			"biomeOROptionOceanOuterS", "Outer Oceans South"]
-			
-			
-
-	if (x.checked == true) {
-			
-			biomeDivOutput = document.getElementById("biomeDivOutput");
-			biomeORSelect = document.createElement("select");
-			biomeORSelect.setAttribute("id", "biomeORSelector");
-			biomeDivOutput.appendChild(biomeORSelect);
-
-			//Create and append the options
-			for (var i = 0; i < biomeList.length; i++) {
-				var option = document.createElement("option");
-				option.setAttribute("value", biomeList[i]);
-				option.setAttribute("id", biomeList[i]);
-				biomeORSelect.appendChild(option);
-				i = i + 1
-				option.text = biomeList[i];
-				biomeORSelect.appendChild(option);
-			}
-
-		} else{
-			var elem = document.getElementById("biomeDivOutput");
-			while (elem.firstChild) {
-				elem.removeChild(elem.firstChild);
-			}
-		}
-		
-	
-}
-
-
-
 </script>
-<body>
-<main>
-<h1>Seasonal Weather Generator</h1>
-<p>To use this generator, pick a Season, a Location and how many days you would like to generate weather events. 
-<br>Many features are not implemented yet.</p>
-
-
-
-
-<form id="generatorForm" name="generatorForm2" >
-
-
-	<label for="season">Season:</label>
-	<select id="season">
-		<option value= "Empty" selected>Seasons</option>
-		<option value= "Spring">Spring</option>
-		<option value= "Summer">Summer</option>
-		<option value= "Fall">Fall</option>
-		<option value= "Winter">Winter</option>
-	</select>
-	<br><br>
-	<label for="city">City/Location:</label>
-	<select id="city">
-		<option value= "Empty" selected>Location</option>
-		<optgroup label="Sylir">
-			<option value= "Syliras">Syliras</option>
-			<option value= "Sahova">Sahova</option>
-			<option value= "Zeltiva">Zeltiva</option>
-			<option value= "Nyka">Nyka</option>
-			<option value= "Ravok">Ravok</option>
-			<option value= "Sunberth">Sunberth</option>
-			<option value= "The Wildlands">The Wildlands</option>
-		</optgroup>
-		<optgroup label="Taldera">
-			<option value= "Avanthal">Avanthal</option>
-			<option value= "The Spires">The Spires</option>
-			<option value= "The Northern Reaches">The Northern Reaches</option>
-		</optgroup>
-		<optgroup label="Kalea">
-			<option value= "Lhavit">Lhavit</option>
-			<option value= "Wind Reach">Wind Reach</option>
-			<option value= "Alvadas">Alvadas</option>
-			<option value= "Kalinor">Kalinor</option>
-			<option value= "Sultros">Sultros</option>
-			<option value= "The Unforgiving">The Unforgiving</option>
-		</optgroup>
-		<optgroup label="Falyndar">
-			<option value= "Syka">Syka</option>
-			<option value= "Taloba">Taloba</option>
-			<option value= "Zinrah">Zinrah</option>
-			<option value= "Black Rock">Black Rock</option>
-			<option value= "The Jungle Wilds">The Jungle Wilds</option>
-		</optgroup>
-		<optgroup label="Eyktol">
-			<option value= "Ahnatep">Ahnatep</option>
-			<option value= "Yahebah">Yahebah</option>
-			<option value= "The Burning Lands">The Burning Lands</option>
-		</optgroup>
-		<optgroup label="Elsewhere">
-			<option value= "Mura">Mura</option>
-			<option value= "Abura">Abura</option>
-			<option value= "The Suvan Sea">The Suvan Sea</option>
-			<option value= "The Outer Oceans - East">The Outer Oceans - East</option>
-			<option value= "The Outer Oceans - West">The Outer Oceans - West</option>
-			<option value= "Location Override">Location Override</option>
-		</optgroup>
-	</select>
-	<br>
-		<label for="biomeOverride">Biome Override:</label>
-	<input type="checkbox" id="biomeOverride" onclick="biomeOR()">
-	<div id="biomeDivOutput"> </div>
-	<label for="days">Days:</label>
-	<input type="number" id="days" min="1" max="92" value="91">
-	<br>	<br>
-	
-	
-	
-	
-	<input type="button" id="submit" class="button" value="Submit" onclick="submitForm()" >
-	<input type="button" id="resetbutton" class="button"  value="Reset" onclick="resetForm()">
-	
-	
-	<br><br>
-	<br>
-<output id="output" form="generatorForm">Here is some output</output>
-<br>
-<label for="outputTextAreaBBC">BBC Output:</label>
-<br>
-<textarea id="outputTextAreaBBC rows="4" cols="50"> Sphinx of black quartz, judge my vow" </textarea>
-
-
-</form>
-
-
-
-
-
-
-<br><br>
-<p>What has been implemented </p>  <button class="button" onclick="toggleFeatureList()">Click to Hide</button>
-<div id="featureList"><ul>
-	<li>biome override conditional checkbox</li>
-</ul>
-	
-<p>What has not been implemented </p>
-<ul>
-	<li>Proper city biomes</li>
-</ul></div>
-</main>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Pineapple Jelly</title>
+		<link rel="icon" type="image/x-icon" href="./assets/sigil.svg"/>
+		<link href="style.css" rel="stylesheet" />  
+		
+	</head>
+  
+  
+  
+	<body>
+		<center> 0.3</center>
+		<a href="./pages/welcome.html"><svg id= "centeralLogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 407.92 543.64">
+			<path class="a" d="M497.25,445.81C428.73,333.8,355.49,208,289.41,94.3h7.79c-29.57,50.92-73.43,126.3-102.95,176.32-17,28.82-61.51,103.84-78.41,131.55C109.39,413,96,435,89.35,445.81c-1.48-.43,204.09-353.93,204-354.76,0,.74,205.19,354.32,204,354.76Z" transform="translate(-89.34 -17.05)"/>
+			<polygon class="a" points="206.46 259.02 203.96 543.64 201.46 259.02 206.46 259.02 206.46 259.02"/>
+			<path class="a" d="M248.7,317.78c-7.26,22.86-15.87,45.64-25.31,67.69-13.74,31.74-33.74,78.77-47.67,110.57l-.46-.19c12.41-32.51,31.07-79.93,43.55-112.25,5.68-14.75,12.31-29.94,18.91-44.3,3.36-7.3,6.82-14.55,10.52-21.71l.46.19Z" transform="translate(-89.34 -17.05)"/>
+			<path class="a" d="M338.2,317.59c10.77,21.2,20.53,43.27,29.19,65.42,12.34,32,30.89,79.12,43.14,111.27l-.46.19c-13.84-31.59-33.61-78.08-47.27-109.59-6.24-14.36-12.11-29.7-17.42-44.44-2.69-7.5-5.29-15-7.64-22.66l.46-.19Z" transform="translate(-89.34 -17.05)"/>
+			<path class="a" d="M426,17.05c49.78,65.48,40.93,159.78-18.86,216C371.25,267.6,319.82,284,270.52,276.93,147.43,259.79,86,117,160.56,17.05l.41.29A163.87,163.87,0,0,0,140.48,56.6c-15.11,41.81-12,89.82,8.64,129.22,26,50.84,78.81,84.92,135.87,87.54A162.87,162.87,0,0,0,377.7,250c65.15-39,94.6-122.07,68.42-193.36a163.51,163.51,0,0,0-20.49-39.26l.41-.29Z" transform="translate(-89.34 -17.05)"/>
+		</svg></A>
+	</body>
 </html>
