@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, "Helvetica Neue",  Arial, sans-serif;
+  margin: auto;
+
+}
+
+body {
+	 background-color:#F2CD5C ;
+	 color: #A61F69;
+}
+
+ .a {
+	 fill: #A61F69;
+ }
+
+@media screen and (min-width: 480px) {
+	#centeralLogo {
+		display: block;
+		margin:  200px auto 200px auto;
+		height: 30pc;
+		width: 30pc;
+	}
+}
+
+
+@media screen and (max-width: 479px) {
+	#centeralLogo {
+		display: block;
+		margin:  200px auto 200px auto;
+		height: 50vmax;
+		width: 50vmax;
+	}
+}
