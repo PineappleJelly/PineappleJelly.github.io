@@ -11,10 +11,23 @@ body {
 	 
 }
 
-#title {
-	  float: right;
-	   padding-left: 80px;
-	  
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+.title {
+	font-size:6vw
+}
+
+.refImage{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 70vmax;
 }
 
  .a {
@@ -28,6 +41,8 @@ body {
 		height: 30pc;
 		width: 30pc;
 	}
+	
+
 }
 
 
@@ -37,5 +52,12 @@ body {
 		margin:  200px auto 200px auto;
 		height: 50vmax;
 		width: 50vmax;
+	}
+	
+	.refImage{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50vmax;
 	}
 }
